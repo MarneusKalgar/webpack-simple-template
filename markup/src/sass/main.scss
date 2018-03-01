@@ -1,0 +1,93 @@
+@import "variables";
+@import "bourbon/bourbon";
+@import "fonts";
+@import "helpers";
+
+//* { outline: none; }
+
+html {
+  background: #fff;
+  font-family: $font-default;
+  font-size: $em-base;
+  line-height: 1.123;
+  color: $color-text;
+  cursor: default;
+}
+
+html, body {
+  //height: 100%;
+  min-height: 100%;
+}
+
+:root {
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+hr {
+  display: block;
+  border: none;
+  background: #000;
+  height: 1px; width: 3rem;
+  margin: 1.14rem auto; padding: 0;
+}
+
+audio, canvas, iframe, img, svg, video {
+  vertical-align: middle;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  display: block;
+  @include size(100% 100%);
+  overflow: visible;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+p { margin: 0 0 1em 0; }
+
+#debug {
+  position: fixed;
+  right: 10px; bottom: 0;
+  z-index: 200;
+  display: block;
+  padding: 5px 10px;
+  background: #e8514a;
+  opacity: .8;
+  font-size: 12px; line-height: 1.5;
+  transform: translate(100%,0%);
+  transition: transform 0.2s, right 0.2s;
+  a { display: block; }
+  &:hover { right: 0px; transform: translate(0%,0%); }
+}
+
+// Main
+.all {
+  &__header {}
+  &__body {}
+  &__footer {}
+}

@@ -1,0 +1,35 @@
+{
+  "name": "webpack-simple-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/igor.chernobay/webpack-simple-template.git"
+  },
+  "author": "Igor Chernobay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/igor.chernobay/webpack-simple-template/issues"
+  },
+  "homepage": "https://gitlab.com/igor.chernobay/webpack-simple-template#README",
+  "devDependencies": {
+    "css-loader": "^0.28.10",
+    "extract-text-webpack-plugin": "^4.0.0-alpha.0",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.2",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9",
+    "webpack-dev-server": "^3.0.0"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "normalize.css": "^8.0.0"
+  }
+}

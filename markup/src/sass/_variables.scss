@@ -1,0 +1,16 @@
+// Colors
+$color-text: #000;
+
+$font-default: Arial,Helvetica,FreeSans,"Liberation Sans","Nimbus Sans L",sans-serif;
+
+// Media
+$phone-width: 320px;
+$tablet-width: 768px;
+$desktop-width: 1025px;
+$laptop-sm-width: 1280px;
+$laptop-md-width: 1366px;
+$laptop-lg-width: 1440px;
+$full-hd-width: 1900px;
+
+// Bourbon
+$em-base: 16px; // Sets global base em size for the px-to-em and px-to-rem function. This should be the same size as your body font-size. Setting default is 16px.
