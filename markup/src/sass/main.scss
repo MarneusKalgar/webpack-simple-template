@@ -71,18 +71,13 @@ textarea {
 p { margin: 0 0 1em 0; }
 
 #debug {
-  position: fixed;
-  right: 10px; bottom: 0;
-  z-index: 200;
-  display: block;
-  padding: 5px 10px;
-  background: #e8514a;
-  opacity: .8;
+  position: fixed; right: 10px; bottom: 0; z-index: 200;
+  display: block; padding: 5px 10px;
+  background: #e8514a; opacity: .8;
   font-size: 12px; line-height: 1.5;
-  transform: translate(100%,0%);
-  transition: transform 0.2s, right 0.2s;
+  transform: translate(100%, 0%); transition: transform 0.2s, right 0.2s;
   a { display: block; }
-  &:hover { right: 0px; transform: translate(0%,0%); }
+  &:hover { right: 0; transform: translate(0%, 0%); }
 }
 
 // Main

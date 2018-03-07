@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
@@ -21,13 +22,12 @@ function generateHtmlPlugs(tplDir) {
 const htmlPlugs = generateHtmlPlugs('./src/pug/output');
 
 module.exports = {
+  devtool: 'source-map',
 	entry: {
+    vendor: ['jquery'],
 		app: [
 			'./src/sass/app.scss',
-			'./src/js/app/app.js'
-		],
-		vendors: [
-			'./src/js/vendor/vendor.js'
+			'./src/js/app.js'
 		]
 	},
 	output: {
@@ -51,16 +51,17 @@ module.exports = {
 			{
 				enforce: 'pre',
 				test: /\.js$/,
-				exclude: [
-					path.resolve(__dirname, 'node_modules')
-				],
-				use: 'eslint-loader'
+				exclude: /node_modules/,
+        use : {
+          loader: 'eslint-loader',
+          options: {
+            failOnError: false
+          }
+        }
 			},
 			{
 				test: /\.js$/,
-				exclude: [
-					path.resolve(__dirname, 'node_modules')
-				],
+        exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
 					options: {
@@ -101,10 +102,30 @@ module.exports = {
 			}
 		]
 	},
+	optimization: {
+    splitChunks: {
+      cacheGroups: {
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        },
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        }
+      }
+    }
+	},
 	plugins: [
 		new ExtractTextPlugin({
 			filename: 'сss/app.css'
-		})
-	]
+		}),
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery',
+      'window.jQuery': 'jquery',
+    })
+  ]
 	.concat(htmlPlugs)
 };
